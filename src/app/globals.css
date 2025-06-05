@@ -1,8 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgb(2, 8, 23); /*222.2 84% 4.9%;*/
+  --foreground: rgb(248, 250, 252); /*210 40% 98%;*/
+
+  --card: rgb(2, 8, 23); /*222.2 84% 4.9%;*/
+  --card-foreground: rgb(248, 250, 252); /*210 40% 98%;*/
+
+  --popover: rgb(2, 8, 23); /*222.2 84% 4.9%;*/
+  --popover-foreground: rgb(248, 250, 252); /*210 40% 98%;*/
+
+  --primary: rgb(22, 162, 73); /*142 76% 36%;*/
+  --primary-foreground: rgb(248, 250, 252); /*210 40% 98%;*/
+
+  --secondary: rgb(30, 41, 59); /*217.2 32.6% 17.5%;*/
+  --secondary-foreground: rgb(248, 250, 252); /*210 40% 98%;*/
+
+  --muted: rgb(30, 41, 59); /*217.2 32.6% 17.5%;*/
+  --muted-foreground: rgb(148, 163, 184); /*215 20.2% 65.1%;*/
+
+  --accent: rgb(30, 41, 59); /* 217.2 32.6% 17.5%;*/
+  --accent-foreground: rgb(248, 250, 252); /*210 40% 98%;*/
+
+  --destructive: rgb(127, 29, 29); /*0 62.8% 30.6%;*/
+  --destructive-foreground: rgb(248, 250, 252); /*210 40% 98%;*/
+
+  --border: rgb(30, 41, 59); /*217.2 32.6% 17.5%;*/
+  --input: rgb(30, 41, 59); /*217.2 32.6% 17.5%;*/
+  --ring: rgb(203, 213, 225); /*212.7 26.8% 83.9%;*/
+  --sidebar-background: rgb(24, 24, 27); /*240 5.9% 10%;*/
+  --sidebar-foreground: rgb(244, 244, 245); /*240 4.8% 95.9%;*/
+  --sidebar-primary: rgb(29, 78, 216); /*224.3 76.3% 48%;*/
+  --sidebar-primary-foreground: rgb(255, 255, 255); /*0 0% 100%;*/
+  --sidebar-accent: rgb(39, 39, 42); /*240 3.7% 15.9%;*/
+  --sidebar-accent-foreground: rgb(244, 244, 245); /*240 4.8% 95.9%;*/
+  --sidebar-border: rgb(39, 39, 42); /*240 3.7% 15.9%;*/
+  --sidebar-ring: rgb(59, 130, 246); /*217.2 91.2% 59.8%;*/
 }
 
 @theme inline {
@@ -11,16 +44,207 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar-background: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+button,
+a {
+  cursor: pointer;
+}
+.text-gradient {
+  background: linear-gradient(135deg, #00ff88, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.border-gradient {
+  border-image: linear-gradient(135deg, #00ff88, #00d4ff) 1;
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.typing-animation {
+  border-right: 2px solid #00ff88;
+  animation: typing 3s steps(40) infinite, blink 1s infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.code-block {
+  font-family: "Fira Code", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
+}
+
+/* Border radius utilities */
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+/* Keyframes */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #00ff88;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88;
+  }
+}
+@keyframes glow2 {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #00ff88;
+  }
+  50% {
+    box-shadow: 0 0 10px #00ff88, 0 0 15px #00ff88;
+  }
+}
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  0%,
+  50% {
+    border-color: transparent;
+  }
+  51%,
+  100% {
+    border-color: #00ff88;
+  }
+}
+
+/* Animation utilities */
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+.animate-glow2 {
+  animation: glow2 2s ease-in-out infinite;
+}
+.animate-typing {
+  animation: typing 3s steps(40) infinite;
+}
+.animate-blink {
+  animation: blink 1s infinite;
 }
