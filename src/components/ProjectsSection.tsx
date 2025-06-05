@@ -1,4 +1,5 @@
 import { ExternalLink, Github, Eye } from "lucide-react";
+import { FiGithub } from "react-icons/fi";
 import {
   Card,
   CardContent,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const ProjectsSection = () => {
   const projects = [
@@ -88,6 +90,21 @@ const ProjectsSection = () => {
       githubUrl: "",
       featured: true,
     },
+    {
+      title: "Jcinema",
+      description:
+        "A movie website using Next js with The Movie Database API and Tailwind CSS.",
+      image: "/projects/jcinema.jpg",
+      technologies: [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "The Movie Database API",
+      ],
+      liveUrl: "https://j-cinema.vercel.app/",
+      githubUrl: "https://github.com/JamesAstro/JCinema",
+      featured: true,
+    },
   ];
 
   const featuredProjects = projects.filter((project) => project.featured);
@@ -142,7 +159,12 @@ const ProjectsSection = () => {
               </div>
               <CardHeader>
                 <CardTitle className="text-white">{project.title}</CardTitle>
-                <CardDescription className="text-gray-400 min-h-[60px]">
+                <CardDescription
+                  className={cn(
+                    "text-gray-400 min-h-[60px]",
+                    index === featuredProjects.length - 1 && "min-h-[auto]"
+                  )}
+                >
                   {project.description}
                 </CardDescription>
               </CardHeader>
@@ -167,14 +189,22 @@ const ProjectsSection = () => {
                     Live Demo
                   </Link>
                   {project.githubUrl.length > 0 && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="border-green-400 text-green-400"
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      className="border-green-400 border h-9  px-3  bg-background hover:bg-accent hover:text-accent-foreground text-green-400 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0"
                     >
-                      <Github className="w-4 h-4 mr-1" />
+                      <FiGithub className="w-4 h-4 mr-1" />
                       Code
-                    </Button>
+                    </Link>
+                    // <Button
+                    //   size="sm"
+                    //   variant="outline"
+                    //   className="border-green-400 text-green-400"
+                    // >
+                    //   <Github className="w-4 h-4 mr-1" />
+                    //   Code
+                    // </Button>
                   )}
                 </div>
               </CardContent>
