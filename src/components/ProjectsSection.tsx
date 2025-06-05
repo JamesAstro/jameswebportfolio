@@ -66,7 +66,8 @@ const ProjectsSection = () => {
         "Twilio",
         "DynamoDB",
       ],
-      liveUrl: "#",
+      liveUrl:
+        "https://drive.google.com/file/d/1G3WsCyON5hFrOLubfe2KSKNbTkNRi-0v/view?usp=sharing",
       githubUrl: "",
       featured: true,
     },
@@ -141,7 +142,7 @@ const ProjectsSection = () => {
               </div>
               <CardHeader>
                 <CardTitle className="text-white">{project.title}</CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardDescription className="text-gray-400 min-h-[60px]">
                   {project.description}
                 </CardDescription>
               </CardHeader>
