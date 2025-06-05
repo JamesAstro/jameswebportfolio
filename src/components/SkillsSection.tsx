@@ -64,7 +64,7 @@ const SkillsSection = () => {
             <Code className="w-8 h-8 text-green-400 mr-3" />
             <h3 className="text-xl font-semibold text-white">My Tech Stack</h3>
           </div>
-          <div className="grid grid-cols-9 gap-4">
+          <div className="grid grid-cols-10 gap-4">
             {STACK_LIST.map((stack: StackItem, index: number) => (
               <div className="flex items-center gap-2 flex-col" key={index}>
                 <Image
@@ -86,7 +86,7 @@ const SkillsSection = () => {
               Development Tools
             </h3>
           </div>
-          <div className="grid grid-cols-9 gap-4">
+          <div className="grid grid-cols-10 gap-4">
             {TOOL_LIST.map((stack: StackItem, index: number) => (
               <div className="flex items-center gap-2 flex-col" key={index}>
                 <Image

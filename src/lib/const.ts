@@ -22,6 +22,10 @@ export const STACK_LIST: StackItem[] = [
     icon: "/stack/tailwindcss.svg",
   },
   {
+    name: "MUI",
+    icon: "/stack/mui.svg",
+  },
+  {
     name: "TypeScript",
     icon: "/stack/typescript.png",
   },
@@ -76,5 +80,9 @@ export const TOOL_LIST: StackItem[] = [
   {
     name: "Prettier",
     icon: "/stack/prettier.svg",
+  },
+  {
+    name: "Framer Motion",
+    icon: "/stack/framer-motion.svg",
   },
 ];
