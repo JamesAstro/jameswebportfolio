@@ -4,8 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { Fade } from "react-awesome-reveal";
 
 const ContactSection = () => {
+  const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,9 +50,11 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
-    alert("Thank you for your message! I'll get back to you soon.");
+
+    toast({
+      title: "Message sent!",
+      description: "Thank you for your message. I'll get back to you soon.",
+    });
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
@@ -56,55 +62,59 @@ const ContactSection = () => {
     <section id="contact" className="py-20 bg-gray-800/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In <span className="text-gradient">Touch</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Ready to work together? Let's create something amazing. I'm always
-            open to discussing new opportunities and interesting projects.
-          </p>
+          <Fade cascade direction="up" className="removeAnim" triggerOnce>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Get In <span className="text-gradient">Touch</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Ready to work together? Let's create something amazing. I'm always
+              open to discussing new opportunities and interesting projects.
+            </p>
+          </Fade>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}
-          <div className="space-y-6 animate-fade-in">
-            <h3 className="text-2xl font-semibold text-white mb-6">
-              Let's Connect
-            </h3>
+          <Fade cascade direction="left" className="removeAnim" triggerOnce>
+            <div className="space-y-6 ">
+              <h3 className="text-2xl font-semibold text-white mb-6">
+                Let's Connect
+              </h3>
 
-            {contactInfo.map((info, index) => (
-              <Card
-                key={info.label}
-                className="bg-gray-900/50 backdrop-blur-sm border-gray-700 hover:border-green-400 transition-all duration-300"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-green-400" />
+              {contactInfo.map((info, index) => (
+                <Card
+                  key={info.label}
+                  className="bg-gray-900/50 backdrop-blur-sm border-gray-700 hover:border-green-400 transition-all duration-300"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardContent className="p-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0">
+                        <info.icon className="w-6 h-6 text-green-400" />
+                      </div>
+                      <div className="text-ellipsis overflow-hidden whitespace-nowrap">
+                        <p className="text-sm text-gray-400">{info.label}</p>
+                        <a
+                          href={info.href}
+                          className="text-white  sm:text-[16px] text-[15px] hover:text-green-400 transition-colors"
+                        >
+                          {info.value}
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm text-gray-400">{info.label}</p>
-                      <a
-                        href={info.href}
-                        className="text-white hover:text-green-400 transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              ))}
 
-            <div className="pt-6">
-              <p className="text-gray-300 text-sm leading-relaxed">
-                I'm currently available for freelance work and full-time
-                opportunities. Feel free to reach out if you have a project in
-                mind or just want to say hello!
-              </p>
+              <div className="pt-6">
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  I'm currently available for freelance work and full-time
+                  opportunities. Feel free to reach out if you have a project in
+                  mind or just want to say hello!
+                </p>
+              </div>
             </div>
-          </div>
+          </Fade>
 
           {/* Contact Form */}
           <div

@@ -9,6 +9,8 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Testimonial from "@/components/Testimonial";
+import Layout from "@/components/Layout";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   useEffect(() => {
@@ -21,7 +23,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white relative">
+    <Layout>
       <AnimatedBackground />
       <Navigation />
 
@@ -33,7 +35,8 @@ const Home = () => {
         <Testimonial />
         <ContactSection />
       </main>
-    </div>
+      <Footer />
+    </Layout>
   );
 };
 

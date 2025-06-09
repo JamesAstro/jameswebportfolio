@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Fade } from "react-awesome-reveal";
 
 const ProjectsSection = () => {
   const projects = [
@@ -105,6 +106,16 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/JamesAstro/JCinema",
       featured: true,
     },
+    {
+      title: "My Web Portfolio",
+      description:
+        "A web portfolio built with Next.js, Tailwind CSS, and TypeScript.",
+      image: "/projects/james-portfolio.jpg",
+      technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+      liveUrl: "https://jameswebportfolio.vercel.app",
+      githubUrl: "https://github.com/JamesAstro/jameswebportfolio",
+      featured: true,
+    },
   ];
 
   const featuredProjects = projects.filter((project) => project.featured);
@@ -114,20 +125,23 @@ const ProjectsSection = () => {
     <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A showcase of my latest work and creative projects
-          </p>
+          <Fade cascade direction="up" className="removeAnim" triggerOnce>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Featured <span className="text-gradient">Projects</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              A showcase of my latest work and creative projects
+            </p>
+          </Fade>
         </div>
 
         {/* Featured Projects */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {featuredProjects.map((project, index) => (
             <Card
               key={project.title}
-              className="bg-gray-900/50 backdrop-blur-sm border-gray-700 hover:border-green-400 transition-all duration-300 overflow-hidden group animate-fade-in"
+              className="bg-gray-900/50 backdrop-blur-sm border-gray-700 hover:border-green-400 overflow-hidden group "
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="relative overflow-hidden">
@@ -136,33 +150,15 @@ const ProjectsSection = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-4 flex gap-2">
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      className="bg-green-500 hover:bg-green-600 text-black"
-                    >
-                      <Eye className="w-4 h-4 mr-1" />
-                      Live Demo
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="border-green-400 text-green-400"
-                    >
-                      <Github className="w-4 h-4 mr-1" />
-                      Code
-                    </Button>
-                  </div>
-                </div> */}
               </div>
               <CardHeader>
                 <CardTitle className="text-white">{project.title}</CardTitle>
                 <CardDescription
                   className={cn(
                     "text-gray-400 min-h-[60px]",
-                    index === featuredProjects.length - 1 && "min-h-[auto]"
+                    (index === featuredProjects.length - 1 ||
+                      index === featuredProjects.length - 2) &&
+                      "min-h-[auto]"
                   )}
                 >
                   {project.description}
@@ -197,14 +193,6 @@ const ProjectsSection = () => {
                       <FiGithub className="w-4 h-4 mr-1" />
                       Code
                     </Link>
-                    // <Button
-                    //   size="sm"
-                    //   variant="outline"
-                    //   className="border-green-400 text-green-400"
-                    // >
-                    //   <Github className="w-4 h-4 mr-1" />
-                    //   Code
-                    // </Button>
                   )}
                 </div>
               </CardContent>
