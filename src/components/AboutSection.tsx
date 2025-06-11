@@ -9,6 +9,19 @@ const AboutSection = () => {
     { icon: Users, label: "Happy Clients", value: "20+" },
   ];
 
+  async function handleDownload() {
+    const response = await fetch("/api/download");
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "james-clifford-astronomo-resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  }
+
   return (
     <section id="about" className="py-20 bg-gray-800/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,17 +61,18 @@ const AboutSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                {/* <Button
-                size="lg"
-                className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
-              </Button> */}
                 <Button
-                  // variant="outline"
+                  onClick={handleDownload}
                   size="lg"
-                  className="bg-green-500 hover:bg-green-600 text-black font-semibold px-12"
+                  className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download CV
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black px-8 py-3"
                   onClick={() =>
                     document
                       .querySelector("#contact")

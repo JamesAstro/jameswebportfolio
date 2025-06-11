@@ -27,7 +27,7 @@ console.log(developer.createMagic());`;
   return (
     <section
       id="home"
-      className="flex sm:pt-40 pt-36 pb-20 items-center justify-center relative overflow-hidden bg-grid"
+      className="flex sm:pt-40 pt-32 pb-20 items-center justify-center relative overflow-hidden bg-grid"
     >
       <div className="lg:max-w-7xl max-w-full lg:w-auto w-full mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Side - Content */}
@@ -35,7 +35,7 @@ console.log(developer.createMagic());`;
           <div className="space-y-8  w-full lg:w-auto lg:text-left text-center">
             <div className="space-y-4">
               <p className="text-green-400 text-lg font-medium">Hello, I'm</p>
-              <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+              <h1 className="sm:text-5xl  text-[44px]  md:text-6xl font-bold text-white leading-tight">
                 <span className="text-gradient">James Clifford</span>
                 <br />
                 Astronomo
