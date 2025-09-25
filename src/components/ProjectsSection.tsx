@@ -109,6 +109,25 @@ const ProjectsSection = () => {
       featured: true,
     },
     {
+      title: "Love Bohol Web App",
+      description:
+        "A website app version of the Bohol Guide mobile app, enabling peope to see hotels, restaurants, and activities in Bohol.",
+      image: "/projects/love-bohol-web-app.jpg",
+      technologies: [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "AWS S3",
+        "AWS Amplify",
+        "Algolia",
+        "AWS API Gateway",
+        "AWS Lambda",
+      ],
+      liveUrl: "https://love.beholdbohol.com/",
+      githubUrl: "",
+      featured: true,
+    },
+    {
       title: "Jcinema",
       description:
         "A movie website using Next js with The Movie Database API and Tailwind CSS.",
