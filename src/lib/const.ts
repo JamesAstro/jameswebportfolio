@@ -42,6 +42,14 @@ export const STACK_LIST: StackItem[] = [
     name: "Node.js",
     icon: "/stack/nodejs.svg",
   },
+  {
+    name: "AWS DynamoDB",
+    icon: "/stack/aws-dynamodb.svg",
+  },
+  {
+    name: "MySQL",
+    icon: "/stack/mysql.svg",
+  },
 ];
 
 export const TOOL_LIST: StackItem[] = [
