@@ -38,7 +38,7 @@ console.log(developer.createMagic());`;
               <h1 className="sm:text-5xl  text-[44px]  md:text-6xl font-bold text-white leading-tight">
                 <span className="text-gradient">James Clifford</span>
                 <br />
-                Astronomo
+                Astronomo II
               </h1>
               <div className="text-xl md:text-2xl text-gray-300 h-12">
                 <TypingAnimation
