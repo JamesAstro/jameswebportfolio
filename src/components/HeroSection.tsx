@@ -64,7 +64,7 @@ console.log(developer.createMagic());`;
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                View My Work
+                View My Works
               </Button>
               <Button
                 variant="outline"
