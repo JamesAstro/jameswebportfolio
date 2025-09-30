@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import TypingAnimation from "./TypingAnimation";
 import CodeBlock from "./CodeBlock";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,19 @@ console.log(developer.createMagic());`;
     "UI/UX Enthusiast",
     "Creative Coder",
   ];
+
+  async function handleDownload() {
+    const response = await fetch("/api/download");
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "james-clifford-astronomo-resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  }
 
   return (
     <section
@@ -69,14 +82,11 @@ console.log(developer.createMagic());`;
               <Button
                 variant="outline"
                 size="lg"
-                className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black px-8 py-3"
-                onClick={() =>
-                  document
-                    .querySelector("#contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                className="border-green-400 flex items-center text-green-400 hover:bg-green-400 hover:text-black px-8 py-3"
+                onClick={handleDownload}
               >
-                Get In Touch
+                <Download className="w-4 h-4 mr-1" />
+                Download CV
               </Button>
             </div>
           </div>
