@@ -43,10 +43,10 @@ const AboutSection = () => {
             <div className="space-y-6 ">
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold text-white">
-                  Frontend Web Developer
+                  Frontend Developer
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  With 3+ years of experience in frontend development, I
+                  With 6+ years of experience in frontend development, I
                   specialize in creating beautiful, responsive, and performant
                   web applications. My journey started with a curiosity about
                   how websites work, and it has evolved into a passion for
