@@ -46,7 +46,7 @@ const AboutSection = () => {
                   Frontend Developer
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  With 6+ years of experience in frontend development, I
+                  With about 5 years of experience in frontend development, I
                   specialize in creating beautiful, responsive, and performant
                   web applications. My journey started with a curiosity about
                   how websites work, and it has evolved into a passion for
