@@ -50,6 +50,14 @@ export const STACK_LIST: StackItem[] = [
     name: "MySQL",
     icon: "/stack/mysql.svg",
   },
+  {
+    name: "PostgreSQL",
+    icon: "/stack/postgresql.svg",
+  },
+  {
+    name: "AWS",
+    icon: "/stack/aws.svg",
+  },
 ];
 
 export const TOOL_LIST: StackItem[] = [
@@ -86,9 +94,22 @@ export const TOOL_LIST: StackItem[] = [
     icon: "/stack/figma.svg",
   },
   {
+    name: "Drizzle ORM",
+    icon: "/stack/drizzle-orm.png",
+  },
+  {
+    name: "MySQL Workbench",
+    icon: "/stack/workbench.png",
+  },
+  {
+    name: "AWS",
+    icon: "/stack/aws.svg",
+  },
+  {
     name: "Prettier",
     icon: "/stack/prettier.svg",
   },
+
   {
     name: "Framer Motion",
     icon: "/stack/framer-motion.svg",

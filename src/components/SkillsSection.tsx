@@ -123,12 +123,10 @@ const SkillsSection = () => {
               {[
                 "Responsive Design",
                 "Performance Optimization",
-                "Agile/Scrum",
-                "WordPress",
                 "Vercel",
-                "Authentication",
-                "Clerk.dev",
+                "Clerk Authentication",
                 "Web Accessibility",
+                "WordPress",
                 "SEO",
               ].map((skill) => (
                 <span

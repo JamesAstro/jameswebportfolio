@@ -33,7 +33,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "Bohol, PH",
+      value: "Philippines",
       href: "#",
     },
   ];

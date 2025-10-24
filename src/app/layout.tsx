@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "James Astronomo",
-  description: "A frontend developer web portfolio",
+  title: "James Clifford Astronomo II",
+  description: "My web portolio as a full stack developer/frontend developer.",
   icons: {
     icon: [{ url: "/favicon.ico", sizes: "any" }],
     shortcut: "/favicon.ico",

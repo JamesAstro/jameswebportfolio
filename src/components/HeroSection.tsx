@@ -18,10 +18,9 @@ const HeroSection = () => {
 console.log(developer.createMagic());`;
 
   const typingTexts = [
+    "Full Stack Developer",
     "Frontend Developer",
     "React Specialist",
-    "UI/UX Enthusiast",
-    "Creative Coder",
   ];
 
   async function handleDownload() {

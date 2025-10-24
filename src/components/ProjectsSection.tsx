@@ -15,23 +15,6 @@ import { Fade } from "react-awesome-reveal";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Skyride Apps",
-      description:
-        "A website for the Skyride Apps company, a web and mobile solutions company that helps businesses and individuals.",
-      image: "/projects/skyride-apps.jpg",
-      technologies: [
-        "React",
-        "Tanstack Start",
-        "Vite",
-        "Tailwind CSS",
-        "Shadcn UI",
-        "React Bits",
-      ],
-      liveUrl: "https://skyride-apps.vercel.app/",
-      githubUrl: "",
-      featured: true,
-    },
-    {
       title: "Filipina Dream Girl",
       description:
         "A platform connecting Filipina singles with German men for meaningful relationships, featuring seamless chat, chat translations, media uploads, and secure Paypal subscriptions to foster growth and connection.",
@@ -127,6 +110,7 @@ const ProjectsSection = () => {
       githubUrl: "",
       featured: true,
     },
+
     {
       title: "Jcinema",
       description:
@@ -140,6 +124,23 @@ const ProjectsSection = () => {
       ],
       liveUrl: "https://j-cinema.vercel.app/",
       githubUrl: "https://github.com/JamesAstro/JCinema",
+      featured: true,
+    },
+    {
+      title: "Skyride Apps",
+      description:
+        "A website for the Skyride Apps company, a web and mobile solutions company that helps businesses and individuals.",
+      image: "/projects/skyride-apps.jpg",
+      technologies: [
+        "React",
+        "Tanstack Start",
+        "Vite",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "React Bits",
+      ],
+      liveUrl: "https://skyride-apps.vercel.app/",
+      githubUrl: "",
       featured: true,
     },
     {

@@ -1,12 +1,13 @@
-import { Download, Award, Coffee, Users } from "lucide-react";
+import { Download, Award, Coffee, Users, AwardIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Fade } from "react-awesome-reveal";
 
 const AboutSection = () => {
   const stats = [
     { icon: Award, label: "Projects Completed", value: "20+" },
-    { icon: Coffee, label: "Cups of Coffee", value: "1000+" },
     { icon: Users, label: "Happy Clients", value: "20+" },
+    { icon: Coffee, label: "Cups of Coffee", value: "1000+" },
+    { icon: AwardIcon, label: "Years of Experience", value: "4+" },
   ];
 
   async function handleDownload() {
@@ -42,21 +43,27 @@ const AboutSection = () => {
           <Fade direction="left" triggerOnce className="removeAnim">
             <div className="space-y-6 ">
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-white">
-                  Frontend Developer
+                <h3 className="text-2xl sm:text-left text-center font-semibold text-white">
+                  Full Stack Developer / Frontend Developer
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  With about 5 years of experience in frontend development, I
-                  specialize in creating beautiful, responsive, and performant
-                  web applications. My journey started with a curiosity about
-                  how websites work, and it has evolved into a passion for
-                  crafting exceptional digital experiences.
+                <p className="text-gray-300  leading-relaxed">
+                  I’m a passionate web developer with 4+ years of experience
+                  building scalable and user-friendly web applications. My
+                  journey began with curiosity about how websites work and has
+                  grown into a love for creating elegant solutions to complex
+                  problems.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  I believe in writing clean, maintainable code and staying
-                  up-to-date with the latest technologies and best practices.
-                  When I'm not coding, you can find me exploring new
-                  technologies and ideas.
+                  I specialize in modern JavaScript frameworks, cloud
+                  architecture, and delivering seamless user experiences. From
+                  simple landing pages to complex applications, I bring
+                  dedication and attention to detail to every project.
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  Outside of coding, I enjoy exploring new technologies,
+                  contributing to open-source projects, and mentoring aspiring
+                  developers. I believe in the power of technology to transform
+                  ideas into real-world solutions.
                 </p>
               </div>
 
@@ -86,7 +93,7 @@ const AboutSection = () => {
           </Fade>
 
           {/* Right side - Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 ">
             <Fade cascade direction="up" triggerOnce className="removeAnim">
               {stats.map((stat, index) => (
                 <div
