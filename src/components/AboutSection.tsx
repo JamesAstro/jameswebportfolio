@@ -47,7 +47,7 @@ const AboutSection = () => {
                   Full Stack Developer / Frontend Developer
                 </h3>
                 <p className="text-gray-300  leading-relaxed">
-                  I’m a passionate web developer with 4+ years of experience
+                  I’m a passionate web developer with 5+ years of experience
                   building scalable and user-friendly web applications. My
                   journey began with curiosity about how websites work and has
                   grown into a love for creating elegant solutions to complex
