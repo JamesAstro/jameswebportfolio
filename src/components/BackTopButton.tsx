@@ -30,7 +30,7 @@ const BackTopButton = () => {
   }
 
   return (
-    <div className="fixed bottom-4 right-[10px] z-[999]">
+    <div className="fixed bottom-4 right-[5px] sm:right-[10px] z-[999]">
       {/* Main Button Container */}
       <div
         className="relative group cursor-pointer"
@@ -39,7 +39,7 @@ const BackTopButton = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Outer Hexagonal Frame */}
-        <div className="relative w-13 h-13">
+        <div className="relative sm:w-13 sm:h-13 w-9 h-9">
           {/* Hexagonal Background */}
           <div
             className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-md border border-primary/30 transition-all duration-500 group-hover:border-primary group-hover:shadow-neon"

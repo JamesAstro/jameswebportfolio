@@ -162,8 +162,9 @@ pre {
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 900px) {
   .removeAnim {
     animation: none !important;
+    transform: none !important;
   }
 }

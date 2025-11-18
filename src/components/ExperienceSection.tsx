@@ -55,7 +55,7 @@ export const ExperienceSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: "easeInOut" }}
               whileHover={{ scale: 1.02 }}
-              className="glass sm:p-8 px-5 py-7 rounded-lg hover:border-primary/50 transition-all duration-300"
+              className="glass sm:p-8 px-5 py-7 removeAnim rounded-lg hover:border-primary/50 transition-all duration-300"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
@@ -83,7 +83,7 @@ export const ExperienceSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-start gap-3 text-muted-foreground"
+                    className="flex items-start gap-3 removeAnim text-muted-foreground"
                   >
                     <span className="text-primary mt-1">▹</span>
                     <span>{achievement}</span>

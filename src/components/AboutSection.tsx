@@ -30,7 +30,7 @@ export const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-12 sm:mb-16 removeAnim"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto" />
@@ -42,7 +42,7 @@ export const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-6 removeAnim"
           >
             <p className="text-lg leading-relaxed">
               I'm a{" "}
@@ -70,7 +70,7 @@ export const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, staggerChildren: 0.1 }}
-            className="grid grid-cols-2 gap-4"
+            className="grid grid-cols-2 gap-4 removeAnim"
           >
             {highlights.map((highlight, index) => (
               <motion.div
@@ -80,7 +80,7 @@ export const AboutSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="glass p-6 rounded-lg text-center hover:border-primary/50 transition-all duration-300"
+                className="glass p-6 rounded-lg text-center removeAnim hover:border-primary/50 transition-all duration-300"
               >
                 <highlight.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                 <p className="text-sm">{highlight.text}</p>

@@ -3,7 +3,7 @@ import { Wrapper } from "./Wrapper";
 
 export const Footer = () => {
   return (
-    <footer className="py-12 border-t border-border/50">
+    <footer className="py-12 border-t border-border/50 1xl:px-0 px-4">
       <Wrapper>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
