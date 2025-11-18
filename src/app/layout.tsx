@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Fira_Code, Inter } from "next/font/google";
-// @ts-ignore: allow side-effect CSS import without type declarations
+
 import "./globals.css";
 
 const jetBrainMono = JetBrains_Mono({
