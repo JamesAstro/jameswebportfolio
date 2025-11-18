@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono, Fira_Code, Inter } from "next/font/google";
+// @ts-ignore: allow side-effect CSS import without type declarations
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jetBrainMono = JetBrains_Mono({
+  variable: "--font-jetBrain-mono",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   title: "James Clifford Astronomo II",
-  description: "My web portolio as a full stack developer/frontend developer.",
+  description: "My web portolio as a frontend-focused full stack engineer.",
   icons: {
     icon: [{ url: "/favicon.ico", sizes: "any" }],
     shortcut: "/favicon.ico",
@@ -29,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable}   antialiased`}
+        className={`${jetBrainMono.variable}  ${firaCode.variable} ${inter.variable} antialiased`}
       >
         {children}
       </body>

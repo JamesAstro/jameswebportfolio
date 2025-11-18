@@ -91,7 +91,7 @@ const AnimatedBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
+      className="absolute h-full top-0 left-0 right-0 w-full max-w-full  pointer-events-none z-0"
       style={{ background: "transparent" }}
     />
   );

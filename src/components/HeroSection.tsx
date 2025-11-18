@@ -1,27 +1,32 @@
-import { ChevronDown, Download } from "lucide-react";
-import TypingAnimation from "./TypingAnimation";
-import CodeBlock from "./CodeBlock";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Slide } from "react-awesome-reveal";
+import { ChevronDown } from "lucide-react";
+import { Wrapper } from "./Wrapper";
+import LightRays from "./LightRays";
+import { Download } from "lucide-react";
 
-const HeroSection = () => {
-  const codeExample = `const developer = {
-  name: "James Astronomo",
-  skills: ["React", "Next.js", "TypeScript"],
-  passion: "Creating amazing UI",
-  
-  createMagic: () => {
-    return "Beautiful web experiences";
-  }
-};
+export const HeroSection = () => {
+  const [displayText, setDisplayText] = useState("");
+  const fullText = "$ pnpm run create-experience...";
 
-console.log(developer.createMagic());`;
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
 
-  const typingTexts = [
-    "Full Stack Developer",
-    "Frontend Developer",
-    "React Specialist",
-  ];
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleScroll = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   async function handleDownload() {
     const response = await fetch("/api/download");
@@ -39,76 +44,108 @@ console.log(developer.createMagic());`;
   return (
     <section
       id="home"
-      className="flex sm:pt-40 pt-32 pb-20 items-center justify-center relative overflow-hidden bg-grid"
+      className="h-[720px] flex items-center lg:px-0 px-4 flex-col justify-center relative overflow-hidden"
     >
-      <div className="lg:max-w-7xl max-w-full lg:w-auto w-full mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Side - Content */}
-        <Slide direction="left" className="removeAnim" triggerOnce>
-          <div className="space-y-8  w-full lg:w-auto lg:text-left text-center">
-            <div className="space-y-4">
-              <p className="text-green-400 text-lg font-medium">Hello, I'm</p>
-              <h1 className="sm:text-5xl  text-[44px]  md:text-6xl font-bold text-white leading-tight">
-                <span className="text-gradient">James Clifford</span>
-                <br />
-                Astronomo II
-              </h1>
-              <div className="text-xl md:text-2xl text-gray-300 h-12">
-                <TypingAnimation
-                  texts={typingTexts}
-                  className="code-block text-green-400"
-                />
-              </div>
-            </div>
-
-            <p className="text-gray-400 text-lg leading-relaxed lg:max-w-lg">
-              I craft beautiful, responsive, and performant web applications
-              using modern technologies. Passionate about creating exceptional
-              user experiences that bring ideas to life.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 lg:w-auto w-full lg:justify-start justify-center">
-              <Button
-                size="lg"
-                className="bg-green-500 hover:bg-green-600 text-black font-semibold px-8 py-3 "
-                onClick={() =>
-                  document
-                    .querySelector("#projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                View My Works
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-green-400 flex items-center text-green-400 hover:bg-green-400 hover:text-black px-8 py-3"
-                onClick={handleDownload}
-              >
-                <Download className="w-4 h-4 mr-1" />
-                Download CV
-              </Button>
-            </div>
-          </div>
-        </Slide>
-
-        {/* Right Side - Code Block */}
-        <Slide direction="right" className="removeAnim" triggerOnce>
-          <div className="animate-slide-in-right lg:block hidden">
-            <CodeBlock
-              code={codeExample}
-              language="javascript"
-              className="max-w-lg animate-float"
-            />
-          </div>
-        </Slide>
+      <div className="w-full">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#16c1f5"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="!absolute lg:!top-0 !left-0 !right-0 !top-[55px]"
+          // className="custom-rays"
+        />
       </div>
+      {/* Animated background grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-6 h-6 text-green-400" />
-      </div>
+      <Wrapper className="z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center max-w-4xl w-full mx-auto"
+        >
+          {/* Terminal intro */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="font-code text-primary text-sm md:text-base mb-8 flex items-center justify-center gap-2"
+          >
+            <span>{displayText}</span>
+            <span className="blinking-cursor">|</span>
+          </motion.div>
+
+          {/* Main heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-4xl md:text-6xl !leading-[1.3] lg:text-[65px] font-bold mb-6"
+          >
+            Hi, I'm{" "}
+            <span className="text-gradient">James Clifford Astronomo II</span>
+          </motion.h1>
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="text-xl md:text-2xl text-muted-foreground !leading-[1.6] mb-12 max-w-3xl mx-auto"
+          >
+            Frontend Developer crafting elegant, performant, and user-focused
+            web experiences.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <Button
+              size="lg"
+              onClick={() => handleScroll("projects")}
+              className="bg-gradient-to-r sm:w-auto w-[200px] from-primary to-secondary text-background font-semibold glow-cyan hover:scale-105 transition-all duration-300 px-8"
+            >
+              View My Work
+            </Button>
+            <Button
+              onClick={handleDownload}
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary sm:w-auto w-[200px] hover:bg-primary/10 hover:scale-105 transition-all duration-300 px-8"
+            >
+              <Download className="w-4 h-4" />
+              Download CV
+            </Button>
+          </motion.div>
+        </motion.div>
+      </Wrapper>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <ChevronDown className="text-primary" size={32} />
+        </motion.div>
+      </motion.div>
+      {/* <AnimatedBackground /> */}
     </section>
   );
 };
-
-export default HeroSection;

@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Toaster } from "./ui/toaster";
+import BackTopButton from "./BackTopButton";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,12 +11,11 @@ interface LayoutProps {
 
 export default function Layout({ children, className }: LayoutProps) {
   return (
-    <div
-      className={cn("min-h-screen bg-gray-900 text-white relative", className)}
-    >
+    <div className={cn("min-h-screen bg-background relative", className)}>
       {children}
 
       <Toaster />
+      <BackTopButton />
     </div>
   );
 }
