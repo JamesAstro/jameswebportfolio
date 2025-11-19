@@ -118,7 +118,7 @@ export const HeroSection = () => {
             >
               View My Work
             </Button>
-            <Button
+            {/* <Button
               onClick={handleDownload}
               size="lg"
               variant="outline"
@@ -126,6 +126,16 @@ export const HeroSection = () => {
             >
               <Download className="w-4 h-4" />
               Download CV
+            </Button> */}
+
+            <Button
+              onClick={() => handleScroll("contact")}
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary sm:w-auto w-[200px] hover:bg-primary/10 hover:scale-105 transition-all duration-300 px-8"
+            >
+              {/* <Download className="w-4 h-4" /> */}
+              Contact Me
             </Button>
           </motion.div>
         </motion.div>
